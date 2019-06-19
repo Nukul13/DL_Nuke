@@ -1,6 +1,6 @@
-# Build and Install OpenCV 3.4  and OpenCV 4.0 in a system on a system running Ubuntu, open terminal in the $HOME
+# Build and Install OpenCV 3.4  and OpenCV 4.0 in a system running on Ubuntu
 
-1. Open terminal by pressing `Ctrl + Alt + T`.
+1. Open terminal by pressing `Ctrl + Alt + T`. Go to $HOME directory: `cd $HOME`
 
 2. Remove previously installed opencv: 
 
@@ -21,20 +21,15 @@ sudo pip3 install matplotlib
 ```
 
 5. Download and compile opencv-3.4.0 source code
-`wget https://github.com/opencv/opencv/archive/3.4.0.zip -O opencv-3.4.0.zip`
-
-`unzip opencv-3.4.0.zip`
-
-`cd opencv-3.4.0`
-
-`wget https://github.com/opencv/opencv_contrib/archive/3.4.0.zip -O opencv_contrib-3.4.0.zip`
-
-`unzip opencv-3.4.0.zip`
-
-`mkdir build && cd build`
-
-`mkdir installed`
-
+```
+wget https://github.com/opencv/opencv/archive/3.4.0.zip -O opencv-3.4.0.zip
+unzip opencv-3.4.0.zip
+cd opencv-3.4.0
+wget https://github.com/opencv/opencv_contrib/archive/3.4.0.zip -O opencv_contrib-3.4.0.zip
+unzip opencv-3.4.0.zip
+mkdir build && cd build
+mkdir installed
+```
 ```
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=$HOME/opencv-3.4.0/build/installed -D WITH_CUDA=ON -D CUDA_ARCH_BIN="" -D CUDA_ARCH_PTX="" -D WITH_CUBLAS=ON -D ENABLE_FAST_MATH=ON -D CUDA_FAST_MATH=ON -D ENABLE_NEON=ON -D WITH_LIBV4L=ON -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=ON -D PYTHON_EXECUTABLE="usr/bin/python3" -D INSTALL_PYTHON_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D OPENCV_EXTRA_MODULES_PATH="../opencv_contrib-3.4.0/modules" ..
 ```
@@ -43,20 +38,15 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=$HOME/opencv-3.4.0/bui
 `sudo make install`
 
 6. Download and compile opencv-4.0.0 source code
-`wget https://github.com/opencv/opencv/archive/4.0.0.zip -O opencv-4.0.0.zip`
-
-`unzip opencv-4.0.0.zip`
-
-`cd opencv-4.0.0`
-
-`wget https://github.com/opencv/opencv_contrib/archive/4.0.0.zip -O opencv_contrib-4.0.0.zip`
-
-`unzip opencv-4.0.0.zip`
-
-`mkdir build && cd build`
-
-`mkdir installed`
-
+```
+wget https://github.com/opencv/opencv/archive/4.0.0.zip -O opencv-4.0.0.zip
+unzip opencv-4.0.0.zip
+cd opencv-4.0.0
+wget https://github.com/opencv/opencv_contrib/archive/4.0.0.zip -O opencv_contrib-4.0.0.zip
+unzip opencv-4.0.0.zip
+mkdir build && cd build
+mkdir installed
+```
 ```
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=$HOME/opencv-4.0.0/build/installed -D WITH_CUDA=ON -D CUDA_ARCH_BIN="" -D CUDA_ARCH_PTX="" -D WITH_CUBLAS=ON -D ENABLE_FAST_MATH=ON -D CUDA_FAST_MATH=ON -D ENABLE_NEON=ON -D WITH_LIBV4L=ON -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=ON -D PYTHON_EXECUTABLE="usr/bin/python3" -D INSTALL_PYTHON_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D OPENCV_EXTRA_MODULES_PATH="../opencv_contrib-4.0.0/modules" ..
 ```
@@ -95,5 +85,4 @@ Set “`OPENCV=4`” for using OpenCV 4.0.0
 `sudo ldconfig`
 
 11. To verify the installation
-`python3 -c 'import cv2; print(cv2.__version__)'`
-`python2 -c 'import cv2; print(cv2.__version__)'`
+`python3 -c 'import cv2; print(cv2.__version__)'
